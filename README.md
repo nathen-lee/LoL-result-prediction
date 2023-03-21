@@ -18,11 +18,19 @@ The columns correspond to those statistics:
 We decided to work on the prediction problem of determining whether a team will win or lose a game. To achieve this, we are constructing a binary classifier model that utilizes the provided features to predict the outcome - whether the team won (1) or lost (0) a game. The information we'll be needing as features are: 'gametype', 'league', 'kills', 'dragons', 'elders', 'heralds', 'barons', 'towers', 'visionscore', and 'creepscore'. Given the unbalanced distributions of international and regional games, we evaluated the model's performance using the f1-score metric, as it is well-suited for classification problems of this nature.
 
 # Baseline Model
-Our baseline model utilizes a preprocessor to one-hot encode the gametype and league features and keeps the remaining features the same as they are passed through a decision tree classifier. Before preprocessing, the gametype and league features were both nominal features, but after preprocessing, all of the features used in our baseline model were quantitative. This model yielded an accuracy of 1.0 for our training set and ~0.95454 for our test set. Because of this, we determined that this model is not 'good' as the model is overfitting on the training set. To remove the overfitting issue, we must improve the model by altering more features and establishing an adequate depth for the decision tree.
+Our baseline model utilizes a preprocessor to one-hot encode the gametype and league features and keeps the remaining features the same as they are passed through a decision tree classifier. Before preprocessing, the gametype and league features were both nominal features, but after preprocessing, all of the features used in our baseline model were quantitative. This model yielded an accuracy of 1.0 for our training set and ~0.95656 for our test set. Because of this, we determined that this model is not 'good' as the model is overfitting on the training set. To remove the overfitting issue, we must improve the model by altering more features and establishing an adequate depth for the decision tree.
 
 
 # Final Model
-
+In our final model, we decided to engineer more features rather than just letting them pass through the column transformer. We converted 'visionscore' and 'creepscore' into quantiles using a quantile transformer, so that they have a uniform distribution and the predictions are less skewed by outliers. We also used standardizer to standardize the other numerical values so that they are all on the same scale, reducing the bias as a result. Finally, we tweaked the hyperparameters of our decision tree using GridSearchCV- found the optimal depth and number of leaves for the decision tree, so that the relationships between the input variables are neither too complex nor too generalized. 
 
 # Fairness Analysis
+Group X --> Regional games
+Group Y --> International games
+Null hypothesis: Our model is fair. Its precision for regional and international games are roughly the same, and any differences are due to random chance.
+Alternative Hypothesis: Our model is unfair. Its precision for regional games is higher than its precision for international games.
+Test statistic --> F1 Score
+P-value --> 0.22
+significance level --> 0.05
+Conclusion: Since our p-value was higher than the significance level, we fail to reject the null and our model is rather unfair while making predictions.
 <iframe src="assets/f1-score.html" width=800 height=600 frameBorder=0></iframe>
