@@ -25,12 +25,12 @@ Our baseline model utilizes a preprocessor to one-hot encode the gametype and le
 In our final model, we decided to engineer more features rather than just letting them pass through the column transformer. We converted 'visionscore' and 'creepscore' into quantiles using a quantile transformer, so that they have a uniform distribution and the predictions are less skewed by outliers. We also used standardizer to standardize the other numerical values so that they are all on the same scale, reducing the bias as a result. Finally, we tweaked the hyperparameters of our decision tree using GridSearchCV- found the optimal depth and number of leaves for the decision tree, so that the relationships between the input variables are neither too complex nor too generalized. 
 
 # Fairness Analysis
-<br>Group X --> Regional games</br>
-<br>Group Y --> International games</br>
-<br>Null hypothesis: Our model is fair. Its precision for regional and international games are roughly the same, and any differences are due to random chance.</br>
-<br>Alternative Hypothesis: Our model is unfair. Its precision for regional games is higher than its precision for international games.</br>
-<br>Test statistic --> F1 Score</br>
-<br>P-value --> 0.22</br>
-<br>Significance level --> 0.05</br>
-<br>Conclusion: Since our p-value was higher than the significance level, we fail to reject the null and our model is rather unfair while making predictions.</br>
+Group X --> Regional games
+<br>Group Y --> International games
+<br>Null hypothesis: Our model is fair. Its precision for regional and international games are roughly the same, and any differences are due to random chance.
+<br>Alternative Hypothesis: Our model is unfair. Its precision for regional games is higher than its precision for international games.
+<br>Test statistic --> F1 Score
+<br>P-value --> 0.22
+<br>Significance level --> 0.05
+Conclusion: Since our p-value was higher than the significance level, we fail to reject the null and our model is rather unfair while making predictions.
 <iframe src="assets/f1-score.html" width=800 height=600 frameBorder=0></iframe>
