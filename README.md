@@ -18,6 +18,7 @@ The columns correspond to those statistics:
 We decided to work on the prediction problem of determining whether a team will win or lose a game. To achieve this, we are constructing a binary classifier model that utilizes the provided features to predict the outcome - whether the team won (1) or lost (0) a game. The information we'll be needing as features are: 'gametype', 'league', 'kills', 'dragons', 'elders', 'heralds', 'barons', 'towers', 'visionscore', and 'creepscore'. Given the unbalanced distributions of international and regional games, we evaluated the model's performance using the f1-score metric, as it is well-suited for classification problems of this nature.
 
 # Baseline Model
+Our baseline model utilizes a preprocessor to one-hot encode the gametype and league features and keeps the remaining features the same as they are passed through a decision tree classifier. Before preprocessing, the gametype and league features were both nominal features, but after preprocessing, all of the features used in our baseline model were quantitative. This model yielded an accuracy of 1.0 for our training set and ~0.95454 for our test set. Because of this, we determined that this model is not 'good' as the model is overfitting on the training set. To remove the overfitting issue, we must improve the model by altering more features and establishing an adequate depth for the decision tree.
 
 
 # Final Model
