@@ -15,7 +15,7 @@ The columns correspond to those statistics:
 - <mark>creepscore</mark> corresponds to the total sum of the minions and monsters killed by the players on the team.
 
 # Framing the Problem 
-
+We decided to work on the prediction problem of determining whether a team will win or lose a game. To achieve this, we are constructing a binary classifier model that utilizes the provided features to predict the outcome - whether the team won (1) or lost (0) a game. The information we'll be needing as features are: 'gametype', 'league', 'kills', 'dragons', 'elders', 'heralds', 'barons', 'towers', 'visionscore', and 'creepscore'. Given the unbalanced distributions of international and regional games, we evaluated the model's performance using the f1-score metric, as it is well-suited for classification problems of this nature.
 
 # Baseline Model
 
@@ -24,3 +24,4 @@ The columns correspond to those statistics:
 
 
 # Fairness Analysis
+<iframe src="assets/f1-score.html" width=800 height=600 frameBorder=0></iframe>
