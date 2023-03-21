@@ -13,3 +13,14 @@ The columns correspond to those statistics:
 - <mark>towers</mark> corresponds to the total number of towers the team destroyed over the course of the game.
 - <mark>visionscore</mark> corresponds to the total sum of the vision granted or denied by the players on the team. 
 - <mark>creepscore</mark> corresponds to the total sum of the minions and monsters killed by the players on the team.
+
+# Framing the Problem 
+
+
+# Baseline Model
+
+
+# Final Model
+
+
+# Fairness Analysis
