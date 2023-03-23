@@ -32,5 +32,5 @@ Group X --> Regional games
 <br>Test statistic --> F1 Score
 <br>P-value --> 0.22
 <br>Significance level --> 0.05
-<br>Conclusion: Since our p-value was higher than the significance level, we fail to reject the null so our model is relatively fair in making predictions.
+<br>Conclusion: Since our p-value was higher than the significance level, we fail to reject the null and cannot confidently conclude that our model is unfair based on our analysis.
 <iframe src="assets/f1-score.html" width=800 height=600 frameBorder=0></iframe>
